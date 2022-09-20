@@ -1,0 +1,25 @@
+<div class="wrap">
+  <input (input)="changeTerm()" id="search_input" type="search" name="term">
+
+  <div class="row">
+    <div class="card" *ngFor="let movieData of listMovies">
+      <a class="banner" [routerLink]="['/movies', movieData.id]">
+        <img src="https://image.tmdb.org/t/p/w500{{movieData.backdrop_path}}" alt="Poster of {{movieData.original_title}}">
+      </a>
+      <div class="right">
+        <a [routerLink]="['/movie', movieData.id]">{{movieData.original_title}}</a>
+        <h4>{{movieData.release_date | date:'MM/dd/YYYY'}}</h4>
+        <div class="details">
+          <div class="top">
+            <span class="badge" *ngIf="movieData.original_language"><i class="fa-solid fa-globe"></i> : {{movieData.original_language}}</span>
+            <span class="badge" *ngIf="movieData.status"><i class="fa-solid fa-clipboard-check"></i> : {{movieData.status}}</span>
+            <span class="badge" *ngIf="movieData.popularity"><i class="fa-solid fa-fire"></i> : {{movieData.popularity}}</span>
+          </div>
+          <div class="resume">
+            <p>{{movieData.overview | limitCaracters:150}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

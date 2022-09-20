@@ -1,0 +1,17 @@
+
+
+header {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.16);
+  .wrap {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    .logo {
+      max-width: 100px;
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+}

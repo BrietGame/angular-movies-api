@@ -1,0 +1,55 @@
+<div class="wrap">
+  <div class="presentation">
+    <div class="img">
+      <img src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" alt="Poster of {{movie.original_title}}">
+    </div>
+    <div class="content">
+      <h1>{{movie.original_title}}</h1>
+      <p class="slogan"><em>{{movie.tagline}}</em></p>
+      <h2 class="badge bg-light text-dark">{{movie.release_date | date:'MM/dd/YYYY'}}</h2>
+      <div class="badges">
+        <span class="badge bg-danger text-light" *ngIf="movie.adult">Adult <i class="fa-solid fa-circle-check"></i></span>
+        <span class="badge bg-success text-light" *ngIf="!movie.adult">Adult  <i class="fa-regular fa-circle-xmark"></i></span>
+        <span class="badge bg-info text-dark"><i class="fa-solid fa-globe"></i> : {{movie.original_language}}</span>
+        <span class="badge bg-light text-dark"><i class="fa-solid fa-clipboard-check"></i> : {{movie.status}}</span>
+        <span class="badge bg-warning text-dark"><i class="fa-solid fa-fire"></i> : {{movie.popularity}}</span>
+      </div>
+      <div class="genres" *ngFor="let genre of movie.genres">
+          <span class="badge bg-dark text-light">{{genre.name}}</span>
+      </div>
+      <div class="infos">
+        <span class="badge bg-info text-dark"><i class="fa-solid fa-sack-dollar"></i> : {{movie.budget}}</span>
+        <span class="badge bg-info text-dark"><i class="fa-solid fa-wallet"></i> : {{movie.revenue}}</span>
+        <span class="badge bg-info text-dark"><i class="fa-solid fa-clock"></i> : {{movie.runtime}}</span>
+      </div>
+      <hr>
+
+      <p>{{movie.overview}}</p>
+
+      <hr>
+      <div class="production_countries">
+        <h3>Production countries : </h3>
+        <div class="country" *ngFor="let countryProd of movie.production_countries">
+          <span class="badge bg-light text-dark">{{countryProd.name}}</span>
+        </div>
+      </div>
+
+      <div class="spoken_languages">
+        <h3>Spoken languages : </h3>
+        <div class="language" *ngFor="let spokenL of movie.spoken_languages">
+          <span class="badge bg-light text-dark">{{spokenL.name}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="details">
+    <div class="production_companies" *ngFor="let companyProd of movie.production_companies">
+      <img src="{{companyProd.logo_path}}" alt="{{companyProd.name}}">
+      <h3>{{companyProd.name}}</h3>
+      <span class="badge bg-info text-dark"><i class="fa-solid fa-globe"></i>: {{companyProd.origin_country}}</span>
+    </div>
+  </div>
+
+  <a [routerLink]="['/movies']" class="btn btn-info">Retour à la liste</a>
+</div>
