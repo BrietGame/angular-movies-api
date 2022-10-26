@@ -7,5 +7,4 @@ import {Movie} from "./movie";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angular-api-movie';
-}
+ }

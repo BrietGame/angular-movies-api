@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {MovieService} from "../movie.service";
 import {Subscription} from "rxjs";
 import {ActivatedRoute} from "@angular/router";
+import {Movie} from "../movie";
 
 @Component({
   selector: 'app-movie',
@@ -9,7 +10,7 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./movie.component.scss']
 })
 export class MovieComponent implements OnInit {
-  movie: any;
+  movie: Movie = new Movie(0, '', '', '', 0, '', '');
   // @ts-ignore
   private routeSub: Subscription;
   constructor(private movieS: MovieService, private route: ActivatedRoute) { }

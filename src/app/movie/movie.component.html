@@ -1,7 +1,7 @@
 <div class="wrap">
   <div class="presentation">
     <div class="img">
-      <img src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" alt="Poster of {{movie.original_title}}">
+      <img src="https://image.tmdb.org/t/p/w500{{movie.backdrop_path}}" alt="Poster of {{movie.original_title}}">
     </div>
     <div class="content">
       <h1>{{movie.original_title}}</h1>
@@ -24,18 +24,18 @@
       </div>
       <hr>
 
-      <p>{{movie.overview}}</p>
+      <p i18n>{{movie.overview}}</p>
 
       <hr>
       <div class="production_countries">
-        <h3>Production countries : </h3>
+        <h3 i18n>Production countries : </h3>
         <div class="country" *ngFor="let countryProd of movie.production_countries">
           <span class="badge bg-light text-dark">{{countryProd.name}}</span>
         </div>
       </div>
 
       <div class="spoken_languages">
-        <h3>Spoken languages : </h3>
+        <h3 i18n>Spoken languages : </h3>
         <div class="language" *ngFor="let spokenL of movie.spoken_languages">
           <span class="badge bg-light text-dark">{{spokenL.name}}</span>
         </div>
@@ -51,5 +51,5 @@
     </div>
   </div>
 
-  <a [routerLink]="['/movies']" class="btn btn-info">Retour à la liste</a>
+  <a [routerLink]="['/movies']" class="btn btn-info" i18n>Retour à la liste</a>
 </div>
